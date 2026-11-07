@@ -70,7 +70,7 @@ None. With laundering rows at 0.104% (9,873 of 9,504,852), always predicting "no
 
 ### Statistics and uncertainty
 
-Every figure is a point estimate. Distribution statistics come from 10,000, 50,000 and 100,000-row samples with no stated seed, so they cannot be reproduced exactly. The 10,000-row plotting samples would contain about 10 laundering rows (computed on the dashboard from the recorded prevalence), too few to show anything about the positive class. **Needed:** fixed seeds and bootstrap intervals on the full data.
+Every figure is a point estimate. Distribution statistics come from 10,000, 50,000 and 100,000-row random samples. Every `.sample()` call passes `random_state=42`, so the draws are repeatable given the same CSV, but each statistic is one draw from one sample with no interval around it. The 10,000-row plotting samples would contain about 10 laundering rows (computed on the dashboard from the recorded prevalence), too few to show anything about the positive class. **Needed:** the dataset, then bootstrap intervals (or full-data statistics in place of samples) for skewness, correlations and outlier rates (minutes of CPU).
 
 ### Reproducibility
 
@@ -82,7 +82,7 @@ Every figure is a point estimate. Distribution statistics come from 10,000, 50,0
 
 ### Threats to validity
 
-Written down (README, dashboard audit): capping bias, the encoding artefacts in correlation, label leakage, sampling without seeds, the wrong-dataframe cell. None is quantified, because that needs the data.
+Written down in the README and on the dashboard: capping bias, the encoding artefacts in correlation, label leakage, the wrong-dataframe cell. Written down here only: every distribution statistic is a point estimate from one seeded sample (`random_state=42`), with no interval. None is quantified, because that needs the data.
 
 ### Related work
 
