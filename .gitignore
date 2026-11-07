@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Generated reports
+*.html
+!site/index.html
+*.pdf
+
+# Site build
+site/node_modules/
+site/dist/
+site/.rubric/
+site/public/generated/
+site/src/generated/
