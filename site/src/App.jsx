@@ -92,7 +92,7 @@ function Seg({ label, value, options, onChange }) {
 export default function App() {
   useReveal();
   return (
-    <div className="wrap">
+    <div className="wrap"><a className="skip" href="#top">Skip to content</a>
       <MenuBar />
       <div className="glow" aria-hidden="true" />
       <Hero />
@@ -110,7 +110,7 @@ export default function App() {
         Data: <code>SAML-D.csv</code>, not included in the repo, and the repo does not state its source. Every number on this page is read from the notebooks’ recorded outputs at build time
         (<a href={blob('site/src/extract.js')}>extract.js</a>, checked by <a href={blob('site/src/check.mjs')}>check.mjs</a>); the Report Builder and calculators run in your browser.
         <br /><a href={REPO}>Repository</a> · <a href={COLAB}>Open the cleaning notebook in Colab</a> · <a href={blob('docs/research-review.md')}>Research review</a>
-      </footer>
+      <nav className="support" aria-label="Support this work"><a href="https://github.com/sponsors/JesunAhmadUshno">Sponsor this work</a><a href="https://github.com/sponsors/JesunAhmadUshno">Donate</a><a href="https://buymeacoffee.com/jesun">Buy Me a Coffee</a><a href="https://calendly.com/jesunahmadushno/30min">Work with me</a></nav></footer>
     </div>
   );
 }
@@ -199,7 +199,7 @@ function ReportBuilder() {
   const heading = title.trim() || name.replace(/\.ipynb$/, '');
 
   return (
-    <section id="report" className="card window reveal" data-title="AutoReport.app — runs in your browser">
+    <section id="report" className="card window reveal" data-title="AutoReport.app - runs in your browser">
       <div className="head">
         <div>
           <p className="eyebrow">Live · Report Builder</p>
@@ -545,7 +545,7 @@ function Figures() {
   useEffect(() => { if (open != null) ref.current?.showModal?.(); else ref.current?.close?.(); }, [open]);
   const f = open != null ? d.figures[open] : null;
   return (
-    <section id="figures" className="card window reveal" data-title="Preview — 17 figures">
+    <section id="figures" className="card window reveal" data-title="Preview - 17 figures">
       <div className="head">
         <div>
           <p className="eyebrow">Recorded matplotlib output</p>
